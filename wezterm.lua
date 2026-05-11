@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local commands = require("commands")
 local config = wezterm.config_builder()
 
 --Font settings
@@ -9,10 +8,11 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 -- Colors
 config.colors = {
     cursor_bg = "white",
-    cursor_border = "white"
+    cursor_border = "white",
 }
 
 -- Apperence
+config.color_scheme = "Tokyo Night"
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
@@ -24,9 +24,9 @@ config.window_padding = {
 
 config.max_fps = 120
 
--- Custom commands
-wezterm.on("augment-command-palette", function ()
-    return commands
-end)
+-- Window transparency
+config.enable_wayland = true
+config.window_background_opacity = 0.85
 
+config.front_end = 'OpenGL'
 return config
