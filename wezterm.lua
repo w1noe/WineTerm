@@ -30,5 +30,10 @@ config.max_fps = 120
 config.enable_wayland = true
 config.window_background_opacity = 0.85
 
+-- Set powershell as default terminal in windows
+if wezterm.target_triple:find("windows") then
+    config.default_prog = { 'powershell.exe', '-NoLogo' }
+end
+
 config.front_end = 'OpenGL'
 return config
