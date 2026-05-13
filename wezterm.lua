@@ -13,7 +13,9 @@ config.colors = {
 
 -- Apperence
 config.color_scheme = "Tokyo Night"
-config.window_decorations = "RESIZE"
+if os.getenv('NIRI_SOCKET') ~= nil then
+    config.window_decorations = "RESIZE"
+end
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
     left = 0,
